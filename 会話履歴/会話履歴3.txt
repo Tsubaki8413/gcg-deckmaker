@@ -1,0 +1,88 @@
+📝 Reactアプリ開発に関する会話まとめ
+
+---
+
+## 🎯 プロジェクト概要
+- 目的：Reactで「ガンダムカードゲーム」のカードリスト＋デッキメイカーWebアプリを制作
+- 使用目的：個人利用（スマホでも使えるようにしたい）
+- 対象ゲーム：https://www.gundam-gcg.com/jp/
+
+---
+
+## 🗂 ファイル構成と管理
+
+### 画像ファイル
+- 形式：.webp
+- 命名規則：imgi_番号_カードナンバー.webp（例：imgi_9_GD01-006.webp）
+- フォルダ分け：収録弾ごとに分けてOK（例：public/images/GD01/）
+
+### CSVファイル
+- 形式：UTF-8（BOMなし）で保存
+- 配置場所：public/data/gundam_cards_template.csv
+- 内容：カード情報（id, name, color, card_number, rarity, type, level, cost, text, terrain, feature, link, ap, hp, image）
+
+---
+
+## 🧪 ReactでのCSV読み込み
+
+### 使用ライブラリ
+- papaparse（npm install papaparse）
+
+### 読み込みコード例（CardList.jsx）
+- Papa.parse を使って CSV を読み込み、カード一覧を表示
+- 画像は `/images/${card.image}` で表示（image列にフォルダ名込みのパスを記載）
+
+---
+
+## 📁 Reactアプリのフォルダ構成（推奨）
+
+my-gundam-app/
+├── public/
+│   ├── images/
+│   │   ├── GD01/
+│   │   └── GD02/
+│   └── data/
+│       └── gundam_cards_template.csv
+├── src/
+│   ├── components/
+│   │   ├── CardList.jsx
+│   │   ├── CardDetailModal.jsx
+│   │   └── DeckMaker.jsx
+│   ├── utils/
+│   │   └── csvLoader.js
+│   ├── App.jsx
+│   └── index.js
+├── package.json
+└── README.md
+
+---
+
+## ⚙️ App.js と App.jsx の使い分け
+
+- Create React Appでは通常 App.js が生成される
+- JSX構文を使う場合は App.jsx にしてもOK
+- index.js でどちらを import しているかが重要
+- 両方ある場合は index.js を確認して統一する
+
+---
+
+## 🧹 文字化けの原因と対処法
+
+### 原因
+- CSVがUTF-8以外（Shift_JISなど）で保存されている
+- ヘッダーにバックスラッシュ（\_）が含まれている
+- 各行の末尾に空白がある
+
+### 対処法
+- Excelで「CSV UTF-8（コンマ区切り）」として保存
+- ヘッダーを修正（例：card_number）
+- 末尾の空白を削除
+
+---
+
+## 🛠 修正済みCSVの作成履歴
+
+- 元のCSVにバックスラッシュや空白が含まれていた
+- 修正済みCSV（gundam_cards_template_cleaned.csv）を作成済み
+- Reactで正しく読み込める形式に変換済み
+

@@ -1,0 +1,4 @@
+id,name,color,card_number,rarity,type,level,cost,text,terrain,feature,link,ap,hp,image
+1,ガンダム,青,GD01-001,LR,unit,4,3,あああ,"宇宙,地球","〔地球連邦〕,〔WB隊〕",「アムロ・レイ」,3,3,GD01/imgi_4_GD01-001.webp
+2,ユニコーンガンダム（デストロイモード）,青,GD01-002,LR,unit,7,6,あああ,"宇宙,地球",〔民間〕,「バナージ・リンクス」,5,4,GD01/imgi_5_GD01-002.webp
+3,ユニコーンガンダム2号機 バンシィ（デストロイモード）,青,GD01-003,LR,unit,6,4,あああ,"宇宙,地球",〔地球連邦〕,「マリーダ・クルス」,5,4,GD01/imgi_6_GD01-003.webp
