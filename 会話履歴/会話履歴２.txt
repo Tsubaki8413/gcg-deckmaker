@@ -1,0 +1,43 @@
+📝 Reactアプリ開発に関する会話履歴まとめ
+
+作成日時: 2025-07-19 02:51:56
+
+■ プロジェクト概要
+- ガンダムカードゲームのカードリスト＋デッキメイカーWebアプリをReactで制作
+- 目的：個人利用（スマホでも使えるように）
+
+■ 画像ファイルの命名規則とフォルダ構成
+- 画像形式：.webp
+- 命名規則：imgi_番号_カードナンバー.webp（例：imgi_9_GD01-006.webp）
+- フォルダ構成：収録弾ごとに images/GD01/, images/GD02/ などに分ける
+
+■ CSVファイルの扱い
+- 配置場所：public/data/gundam_cards_template.csv
+- 内容：カード情報（id, name, color, card_number, rarity, type, level, cost, text, terrain, feature, link, ap, hp, image）
+- image列にはフォルダ名込みのパス（例：GD01/imgi_9_GD01-006.webp）を記載
+
+■ CSV編集方法
+- ExcelやGoogleスプレッドシートで編集可能
+- 保存形式：CSV UTF-8（コンマ区切り）
+- カンマを含む列は "..." で囲む（例："宇宙,地球"）
+
+■ ReactでのCSV読み込み方法
+- ライブラリ：papaparse を使用（npm install papaparse）
+- CardList.jsx で useEffect + Papa.parse によりCSVを読み込み、カード一覧を表示
+
+■ App.js / App.jsx の使い分け
+- index.js で import App from './App'; の記述により、App.js または App.jsx が使用される
+- JSX構文を使う場合は App.jsx に統一するのがおすすめ
+
+■ 文字化けの原因と対処法
+- 原因：CSVがShift_JIS形式で保存されていた、バックスラッシュや空白が含まれていた
+- 対処法：UTF-8形式で保存し直し、不要な文字や空白を削除
+
+■ 修正済みCSVの作成履歴
+- gundam_cards_template_cleaned.csv を作成（UTF-8形式、ヘッダー修正、空白除去）
+
+■ 表示結果の確認（画像）
+- カード画像は表示されるが、CSVの日本語テキストが文字化けしていた
+- 原因はCSVの文字コードと構造にあり、修正済みCSVで改善可能
+
+以上がこれまでの会話内容のまとめです。
