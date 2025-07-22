@@ -1,0 +1,120 @@
+/* グローバルスタイル */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* App全体のスタイル */
+.App {
+  
+}
+
+/* cardList.css */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin-top: 0;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #fff;
+  width: 100%;
+  height: 40px;
+  border-bottom: 2px solid #000;
+  margin-bottom: 10px;
+  line-height: 40px;
+}
+
+.header p {
+  display: inline;
+  margin: 2px 0 8px 10px;
+}
+
+.area {
+  display: flex;
+}
+
+/* カード一覧グリッド */
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.card-item {
+  width: 150px;
+  position: relative;
+  margin: 0 5px 5px 0;
+  overflow: hidden;
+}
+
+.card-item img {
+  width: 150px;
+  height: 215px;
+}
+
+/* ホバー時のボタン表示 */
+.card-item .card-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 25%;
+  top: 100%;
+  left: 0;
+  margin-top: 161px;
+  padding: 2px 4px;
+  background-color: #fff;
+  opacity: 0.7;
+  transition: 0.5s ease-out;
+}
+
+.card-item:hover .card-buttons {
+  top: 0;
+}
+
+.card-buttons button {
+  border: none;
+}
+
+.card-buttons button:hover {
+  opacity: 0.8;
+}
+
+.card-buttons button:active {
+  transform: translate(0, 0.5px);
+}
+
+/* デッキ情報エリア */
+.deck {
+  width: calc(100% - 785px);
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50px;
+  left: 785px;
+}
+
+.deck h2 {
+  margin-bottom: 5px;
+}
+
+.deck-info {
+  margin-top: 20px;
+}

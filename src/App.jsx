@@ -5,6 +5,7 @@ function App() {
   return (
     <div className="App">
       <h1>ガンダムカードリスト</h1>
+      
       <CardList />
     </div>
   );

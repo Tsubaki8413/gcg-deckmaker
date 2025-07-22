@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Papa from 'papaparse';
+import CardItem from './CardItem';
+import '../styles/style.css'; // 統合CSSの読み込み
 
 const CardList = () => {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    Papa.parse('/data/gundam_cards_template.csv', {
+    Papa.parse('/data/gundam_cards_template_cleaned.csv', {
       download: true,
       header: true,
       complete: (results) => {
@@ -14,17 +16,25 @@ const CardList = () => {
     });
   }, []);
 
+  const handleAdd = (card) => {
+    console.log('追加:', card);
+    // 今後デッキに追加する処理をここに書く
+  };
+
+  const handleDetail = (card) => {
+    console.log('詳細:', card);
+    // 今後モーダル表示などをここに書く
+  };
+
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+    <div className="card-grid">
       {cards.map((card, index) => (
-        <div key={index} style={{ margin: '10px' }}>
-          <img
-            src={`/images/${card.image}`}
-            alt={card.name}
-            style={{ width: '126px', height: '176px' }}
-          />
-          <div>{card.name}</div>
-        </div>
+        <CardItem
+          key={index}
+          card={card}
+          onAdd={handleAdd}
+          onDetail={handleDetail}
+        />
       ))}
     </div>
   );
